@@ -53,19 +53,6 @@ I focused primarily on the frontend architecture and external API integration:
 
 ---
 
-## TMDB API Integration
-
-The application dynamically fetches movie data:
-
-- Genres are fetched from TMDB
-- For each genre, a separate API request retrieves 20 movies
-- Additional curated collections (e.g. New Releases, Fan Favorites) are fetched
-- Movies are displayed as structured collections on the frontend
-
-This required managing multiple asynchronous requests and ensuring efficient rendering of grouped data.
-
----
-
 ## Teammate Contributions
 
 - Database schema and integration using Supabase
