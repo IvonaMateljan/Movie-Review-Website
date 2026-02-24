@@ -1,54 +1,100 @@
-# Semester Project <!-- omit in toc -->
+# Movie Discovery Web Application
 
-- [Project Structure](#project-structure)
-- [My Project Links](#my-project-links)
-  - [Semester Project](#semester-project)
-  - [Semester Assignments](#semester-assignments)
-- [Project Requirements](#project-requirements)
-  - [Web Application Requirements](#web-application-requirements)
-  - [Project Demonstration](#project-demonstration)
+## Overview
 
-## Project Structure
+This project is a full-stack movie discovery platform built with Next.js and TypeScript.
 
-- **`/`**: The source code of your main project
-- **`/assignments`**: Results of your semester assignments
-- **`/docs`**: If using GitHub for documentation (e.g., your final report in Markdown format)
+Users can browse curated movie collections, search and filter titles, rate and like movies, and participate in discussion boards. The application integrates external movie data with a custom backend and CMS system.
 
-## My Project Links
+> UI is functional and focused on demonstrating core features rather than visual polish.
 
-### Semester Project
+The project was developed collaboratively.
 
-- Link to your production version: [**Production Version**](https://korisnicka-sucelja-eight.vercel.app/)
-- Link to your final report: [**Final Report**](https://www.notion.so/Movie-Review-261cdb721b57804f953cf1ba60d26c5c)
+---
 
-### Semester Assignments
+## Project Status
 
-- Link to Assignment 1: [**Assignment 1**](https://github.com/MartinRamljak/Korisnicka-sucelja/blob/main/Assignments/Assignment_1_Figma_essentials.mp4)
-- Link to Assignment 2: [**Assignment 2**](https://github.com/MartinRamljak/Korisnicka-sucelja/blob/main/Assignments/PROFILI%20KORISNIKA%20I%20INFORMACIJSKA%20ARHITEKTURA.pdf)
-- Link to Assignment 3: [**Assignment 3**](https://korisnicka-sucelja-tpes.vercel.app)
-- Link to Assignment 4:
-[**Assignment 4 - low fidelity**](https://www.figma.com/proto/OHJEVA4KuW6URPLyYBpGeR/Untitled?node-id=49-304&node-type=canvas&t=ttTdnjqMSQxTK6yi-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
-[**Assignment 4 - high fidelity**](https://www.figma.com/proto/OHJEVA4KuW6URPLyYBpGeR/Untitled?node-id=8-124&node-type=canvas&t=pbxMrkD4YBvSbnOT-1&scaling=min-zoom&content-scaling=fixed&page-id=0%3A1)
-- Link to Assignment 5: [**Assignment 5**](https://korisnicka-sucelja-dent.vercel.app)
-- Link to Assignment 6:
-[**Assignment 6 - desktop prototype**](https://github.com/MartinRamljak/Korisnicka-sucelja/blob/main/Assignments/Desktop%20-%204.png)
-[**Assignment 6 - mobile prototyle**](https://github.com/MartinRamljak/Korisnicka-sucelja/blob/main/Assignments/Android%20Compact.png)
-[**Assignment 6 - Vercel deployment**](https://korisnicka-sucelja-cxne.vercel.app)
+Codebase available on GitHub. Screenshots demonstrate full functionality.
 
-## Project Requirements
+> **Note:** The application depends on external APIs (TMDB, Supabase, Contentful). If API keys expire or usage limits are reached, screenshots demonstrate full functionality.
 
-### Web Application Requirements
+## Screenshots
 
-- [ ] The application will be used from a web browser
-- [ ] It will be accessible on devices of different sizes
-- [ ] Users can search/filter products or services
-- [ ] The application will support user login for showing private content
-- [ ] One of the public pages will be a blog containing multiple posts with diverse content (images, videos, code snippets)
-- [ ] Part of the application's content will be stored in a remote headless CMS system
+Screenshots demonstrating the application's functionality are available in the [`/screenshots`](/screenshots) folder.
 
-### Project Demonstration
+---
 
-- [ ] Show the production version of the project
-- [ ] The production version will be deployed online on an appropriate cloud platform ([Vercel](https://vercel.com), [Netlify](https://www.netlify.com/) or a similar service)
-- [ ] Analyze the application's performance ([PageSpeed Insights](https://pagespeed.web.dev/))
-- [ ] The analysis results will be part of the final report
+## Tech Stack
+
+### Frontend
+- Next.js
+- TypeScript
+- Tailwind CSS
+- CSS Modules
+
+### Backend & Data
+- Supabase (Database & Authentication)
+- Contentful (CMS)
+- The Movie Database (TMDB) API
+
+---
+
+## My Contributions
+
+I focused primarily on the frontend architecture and external API integration:
+
+- Implemented homepage layout
+- Designed and built collections page layout
+- Implemented search and filtering logic
+- Integrated TMDB API
+- Implemented movie rating system
+- Implemented like functionality
+- Connected ratings and likes to the database and user profile display
+
+---
+
+## TMDB API Integration
+
+The application dynamically fetches movie data:
+
+- Genres are fetched from TMDB
+- For each genre, a separate API request retrieves 20 movies
+- Additional curated collections (e.g. New Releases, Fan Favorites) are fetched
+- Movies are displayed as structured collections on the frontend
+
+This required managing multiple asynchronous requests and ensuring efficient rendering of grouped data.
+
+---
+
+## Teammate Contributions
+
+- Database schema and integration using Supabase
+- CMS integration using Contentful
+- Authentication system (login / signup)
+- Discussion board implementation (create and comment on discussions)
+
+---
+
+## Key Features
+
+- Browse movies by genre
+- Curated collections (new releases, fan favorites)
+- Search and filter functionality
+- User authentication
+- Rate and like movies
+- Personalized user profile displaying activity
+- Discussion board for community interaction
+
+---
+
+## Key Concepts Demonstrated
+
+- Full-stack application architecture
+- REST API integration (multiple external APIs)
+- Asynchronous data fetching & aggregation
+- State-driven UI updates
+- Database persistence (ratings & likes)
+- Authentication flow implementation
+- CMS-driven content management
+- Team collaboration in a shared codebase
+- Deployment using Vercel

@@ -26,37 +26,50 @@ export default function AuthPage() {
   }, [])
 
   const handleSignUp = async () => {
-    setLoading(true)
-    setError(null)
-    const { data, error } = await supabase.auth.signUp({
-      email,
-      password,
-    })
-    if (error) setError(error.message)
-
-    setUser(data.user)
-
-    const { error: dbError } = await supabase
-      .from('profiles')
-      .insert([
-        {
-          id: data.user?.id,
-          username: username,
-          created_at: new Date(),
-          favoritesIDs: [],
-          participatedDiscussionsIDs: [],
-        },
-      ])
-
-    if (dbError) {
-      setError(dbError.message)
-      setLoading(false)
-      return
-    }
-
-    router.push('/user_profile')
+  setLoading(true)
+  setError(null)
+  
+  // 1. Sign up the user
+  const { data, error } = await supabase.auth.signUp({
+    email,
+    password,
+  })
+  
+  if (error) {
+    setError(error.message)
     setLoading(false)
+    return
   }
+
+  // 2. Check if we got a user back
+  if (!data.user) {
+    setError('Signup failed - no user returned')
+    setLoading(false)
+    return
+  }
+
+  // 3. NOW create the profile with the real user ID
+  const { error: dbError } = await supabase
+    .from('profiles')
+    .insert([
+      {
+        id: data.user.id,  // ← This is now guaranteed to exist
+        username: username,
+        created_at: new Date(),
+        favoritesIDs: [],
+        participatedDiscussionsIDs: [],  // Make sure this matches your column name
+      },
+    ])
+
+  if (dbError) {
+    setError(dbError.message)
+    setLoading(false)
+    return
+  }
+
+  router.push('/user_profile')
+  setLoading(false)
+}
 
   const handleLogin = async () => {
     setLoading(true)

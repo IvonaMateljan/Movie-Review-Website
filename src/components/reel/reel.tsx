@@ -50,7 +50,7 @@ export default function Reel({ prompt }: ReelProps) {
             {movie && (
               <Link
                 href={`/movie/${movie.id}`}
-                className="w-[97%] h-[75%] relative z-10 flex flex-col justify-end"
+                className="w-[95%] h-[73%] relative z-10 flex flex-col justify-end"
               >
                 <img
                   src={
